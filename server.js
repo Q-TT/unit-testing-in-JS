@@ -4,6 +4,8 @@ const User = require('./models/user');
 
 app.use(express.json());
 
+
+
 app.get('/users', async (req, res) => {
     try {
         const users = await User.find();

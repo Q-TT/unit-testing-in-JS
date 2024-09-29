@@ -11,9 +11,17 @@ const add = (param1, param2) => {
     return param1 + param2;
   }
 
-  // If neither condition is met, return a default value or an error message
+  // TODO: Write logic that accounts for parameters that are different data types
+  if(isNaN(param1) || isNaN(param2)) {
+    return `${param1}` + `${param2}`
+  } else {
+    return parseInt(param1) + parseInt(param2)
+  }
+
+  // If no specified condition is met, return a default value or an error message
   return "Invalid input";
 };
+
 
 const unitTestExampleOne = () => {
   // Test adding two numbers
@@ -27,5 +35,12 @@ const unitTestExampleTwo = () => {
   console.log(add("Hello ", "world") === "Hello world" ? "Passed" : "Failed");
 };
 
+const unitTestExampleThree = () => {
+  console.log('Test 3: Adding two different data types ("hello" and 1)');
+  console.log(add("hello", 1) === "hello1" ? "Passed" : "Failed")
+  console.log(add("1", 1) === 2 ? "Passed" : "Failed")
+}
+
 unitTestExampleOne();
 unitTestExampleTwo();
+unitTestExampleThree();
